@@ -1,0 +1,57 @@
+<p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog>
+<div class="admin-page p-4" *ngIf="categories.length; else loading">
+  <p-card header="Categories" subheader="List of all categories">
+    <div class="grid">
+      <div class="col-12">
+        <p-toolbar>
+          <div class="p-toolbar-group-left p-3">
+            <p-button
+              label="New"
+              routerLink="form"
+              styleClass="p-button-success "
+              icon="pi pi-plus">
+            </p-button>
+          </div>
+        </p-toolbar>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col-12">
+        <p-table [value]="categories" styleClass="p-datatable-gridlines">
+          <ng-template pTemplate="header">
+            <tr>
+              <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+              <th>Icon</th>
+              <th>Color</th>
+              <th></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-category>
+            <tr>
+              <td>{{ category.name }}</td>
+              <td class="text-center"><i class="pi" style="font-size: 2rem" [class]="'pi-' + category.icon"></i></td>
+              <td class="flex justify-content-center">
+                <div [style]="{ borderRadius: '3px', width: '35px', height: '35px', backgroundColor: category.color }"></div>
+              </td>
+              <td class="text-center">
+                <p-button (click)="onDeleteCategory(category.id, category.name)" styleClass="p-button-danger mr-2" icon="pi pi-trash"></p-button>
+                <p-button (click)="onUpdateCategory(category.id)" styleClass="p-button-info" icon="pi pi-pencil"></p-button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </p-card>
+</div>
+<ng-template #loading>
+  <div class="h-screen flex align-items-center justify-content-center">
+    <p-progressSpinner
+      styleClass="w-5rem h-5rem"
+      strokeWidth="5"
+      fill="var(--surface-ground)"
+      animationDuration="1s">
+    </p-progressSpinner>
+  </div>
+</ng-template>

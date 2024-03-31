@@ -1,0 +1,43 @@
+@use '../../base/colors' as *;
+
+.banner {
+  height: 280px;
+  width: 100%;
+  background-color: #D7EFFB;
+  border-radius: 15px;
+  margin-bottom: 75px;
+
+  &-text {
+    color: var(--surface-700);
+
+    h1 {
+      margin: 0;
+      font-size: 3em;
+      font-weight: 400;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 2em;
+      font-weight: 300;
+    }
+  }
+
+  &-image {
+    text-align: center;
+  }
+
+  &-button {
+    background-color: var(--surface-0)!important;
+    color: $primary-color;
+    border: 0;
+    border-radius: 13px;
+    height: 50px;
+
+    &:hover {
+      background-color: var(--surface-0);
+      color: $primary-color;
+      border: 0;
+    }
+  }
+}

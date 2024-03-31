@@ -1,0 +1,52 @@
+<div class="login-register">
+  <div class="login-register-panel">
+    <div class="grid">
+      <div class="col-6 pr-0">
+        <img src="assets/images/login-register/login-register.jpg" alt="">
+      </div>
+      <div class="col-6 p-4 pr-5">
+        <h3>Welcome!</h3>
+        <h2 class="mb-6">Login Page</h2>
+        <form [formGroup]="loginRegisterForm">
+          <div class="grid">
+            <div class="col-12">
+              <p-inputGroup>
+                <p-inputGroupAddon>
+                  <i class="pi pi-user"></i>
+                </p-inputGroupAddon>
+                <input formControlName="email" pInputText placeholder="Email">
+              </p-inputGroup>
+              <small
+                *ngIf="(form['email'].invalid) && (isSubmitted || form['email'].dirty)"
+                class="p-error"
+              >
+                <span *ngIf="form['email'].errors?.['required']">Email is required</span>
+                <span *ngIf="form['email'].errors?.['email']">Email is invalid</span>
+              </small>
+            </div>
+            <div class="col-12">
+              <p-inputGroup>
+                <p-inputGroupAddon>
+                  <i class="pi pi-lock"></i>
+                </p-inputGroupAddon>
+                <input formControlName="password" type="password" pInputText placeholder="Password">
+              </p-inputGroup>
+              <small
+                *ngIf="(form['password'].invalid) && (isSubmitted || form['password'].dirty)"
+                class="p-error"
+              >
+                Password is required
+              </small>
+            </div>
+            <div class="col-12">
+              <p-button (onClick)="onSubmit()" label="Submit" styleClass="full-btn"></p-button>
+            </div>
+            <div class="col-12" *ngIf="isSubmitted && authError">
+              <small class="p-error">{{ authMessage }}</small>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

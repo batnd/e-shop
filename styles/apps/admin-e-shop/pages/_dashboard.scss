@@ -1,0 +1,58 @@
+.d-item {
+  display: flex;
+  text-align: center;
+  color: var(--surface-0);
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+
+  .left-group {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    .pi {
+      font-size: 4em;
+    }
+
+    .name {
+      font-size: 1.4em;
+    }
+  }
+
+  .number {
+    font-size: 2.5em;
+  }
+}
+
+div.col-3 {
+  flex-grow: 1;
+}
+
+.d-orders {
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+}
+
+.d-products {
+  background-color: #0093E9;
+  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+}
+
+.d-users {
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+}
+
+.d-totalsales {
+  background-color: #D9AFD9;
+  background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+}
+
+.p-card-body {
+  width: 100%;
+}
+
+.p-card-content {
+  height: 100%;
+}

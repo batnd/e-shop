@@ -1,0 +1,55 @@
+@use '../../../base/colors' as *;
+@use '../../../base/mixins' as *;
+
+ltviz-products-product-detail {
+  flex-grow: 1;
+}
+
+.product {
+
+  &-name {
+    font-size: 2em;
+  }
+
+  &-description {
+    font-size: 1.4em;
+  }
+
+  &-rating {
+    margin: 15px 0;
+  }
+
+  &-price {
+    font-size: 2em;
+    font-weight: 600;
+    border-bottom: 1px solid var(--surface-300);
+    padding: 25px 0;
+    margin-bottom: 15px;
+
+    .price-before {
+      font-size: 0.7em;
+      margin-left: 10px;
+      font-weight: 200;
+      color: var(--surface-500);
+      text-decoration: line-through;
+    }
+  }
+
+  &-quantity {
+    margin-bottom: 20px;
+
+    label {
+      font-size: 1.2em;
+    }
+
+    @include orange-button;
+  }
+
+  &-actions {
+    @include orange-button;
+  }
+}
+
+.product-rich-description {
+  line-height: 1.6;
+}

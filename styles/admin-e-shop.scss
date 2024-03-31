@@ -1,0 +1,31 @@
+/// Normalize CSS
+@use 'normalize.css/normalize.css';
+
+/// Base styles.
+@use './base/colors';
+@use './base/fonts';
+@use './base/mixins';
+
+/// External style libraries.
+@use 'primeicons/primeicons.css';
+@use 'primeng/resources/themes/saga-blue/theme.css';
+@use 'primeng/resources/primeng.min.css';
+@use 'primeflex/primeflex.min.css';
+
+/// Overriding PrimeNG fonts.
+@use './base/configuration';
+
+/// Application-level components styles.
+// pages
+@use './apps/admin-e-shop/pages/categories-form';
+@use './apps/admin-e-shop/pages/dashboard';
+// shared
+@use './apps/admin-e-shop/shared/shell';
+// container
+@use './apps/admin-e-shop/main-containers';
+
+/// Libs components styles.
+@use './libs/ui/ui';
+@use './libs/users/users';
+
+

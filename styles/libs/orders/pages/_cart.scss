@@ -1,0 +1,63 @@
+@use '../../../base/mixins' as *;
+@use '../../../base/colors' as *;
+
+ltviz-orders-cart {
+  flex-grow: 1;
+}
+
+.cart {
+
+  &-shipping {
+    color: var(--green-700);
+  }
+
+  &-items {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+  }
+
+  &-item {
+    background-color: var(--surface-0);
+    border: 1px solid var(--surface-300);
+    padding: 15px;
+    border-radius: 15px;
+
+    &-image {
+      img {
+        height: 120px;
+        max-width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &-name {
+      font-weight: 600;
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
+
+    &-price {
+      font-weight: 600;
+      font-size: 1.2em;
+      margin-bottom: 15px;
+      color: $primary-color;
+    }
+
+    &-quantity {
+      margin: 15px 0;
+    }
+
+    &-subtotal {
+      font-weight: 600;
+
+      &-value {
+        color: var(--green-600)
+      }
+    }
+  }
+}
+
+p-button, p-inputNumber {
+  @include orange-button;
+}

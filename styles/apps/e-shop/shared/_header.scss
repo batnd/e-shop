@@ -1,0 +1,20 @@
+header {
+
+  .logo {
+
+    img {
+      cursor: pointer;
+      width: 160px;
+    }
+  }
+
+  .actions {
+
+    .actions-links {
+      display: flex;
+      align-items: center;
+      height: 35px;
+      column-gap: 10px;
+    }
+  }
+}

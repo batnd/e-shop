@@ -1,0 +1,45 @@
+<p-toast></p-toast>
+<div class="product-detail" *ngIf="product">
+  <div class="grid">
+    <div class="col-6">
+      <ltviz-ui-gallery [images]="product.images"></ltviz-ui-gallery>
+    </div>
+    <div class="col-6 product pl-5">
+      <h2 class="product-name">{{ product.name }}</h2>
+      <p class="product-description">{{ product.description }}</p>
+      <div class="product-rating">
+        <p-rating [(ngModel)]="product.rating" [disabled]="true" [cancel]="false"></p-rating>
+      </div>
+      <p class="product-price">
+        {{ product.price | currency }}
+        <span class="price-before">{{ product.price + 18 | currency }}</span>
+      </p>
+      <div class="product-quantity">
+        <label
+          class="mb-2 block font-bold"
+          [for]="'quantity'"
+        >
+          Quantity
+        </label>
+        <p-inputNumber
+          [(ngModel)]="quantity"
+          mode="decimal"
+          [showButtons]="true"
+          inputId="quantity"
+          [min]="1"
+          [max]="100"
+        >
+        </p-inputNumber>
+      </div>
+      <div class="product-actions">
+        <p-button label="Buy Now" styleClass="mr-2" [rounded]="true" (onClick)="buyNow()"></p-button>
+        <p-button label="Add to Cart" [rounded]="true" (onClick)="addProductToCart()"></p-button>
+      </div>
+    </div>
+  </div>
+  <div class="grid product-rich-description">
+    <div class="col-12">
+      <div [innerHTML]="product.richDescription"></div>
+    </div>
+  </div>
+</div>

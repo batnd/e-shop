@@ -1,0 +1,23 @@
+@use '../../../base/colors' as *;
+
+.nav {
+  display: flex;
+  column-gap: 15px;
+  height: 35px;
+  align-items: center;
+
+  li {
+    list-style: none;
+    display: inline-block;
+
+    a {
+      color: var(--surface-500);
+      cursor: pointer;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}

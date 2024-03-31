@@ -1,14 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { UsersService } from '@ltviz/users';
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
-  selector: 'ltviz-root',
+  imports: [
+    RouterModule,
+    HomePageComponent,
+    HeaderComponent,
+    FooterComponent,
+  ],
+  selector: 'e-shop-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  title = 'e-shop';
+export class AppComponent implements OnInit {
+  private usersService: UsersService = inject(UsersService);
+
+  ngOnInit(): void {
+    this.usersService.initAppSession();
+  }
 }

@@ -14,7 +14,15 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@env": ["environments/environment"],
+      "@ltviz/orders": ["libs/orders/src/index.ts"],
+      "@ltviz/products": ["libs/products/src/index.ts"],
+      "@ltviz/ui": ["libs/ui/src/index.ts"],
+      "@ltviz/users": ["libs/users/src/index.ts"]
+    },
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   },
   "exclude": ["node_modules", "tmp"]
 }

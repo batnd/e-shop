@@ -1,0 +1,79 @@
+{
+  "name": "admin-e-shop",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "ltviz",
+  "sourceRoot": "apps/admin-e-shop/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/admin-e-shop",
+        "index": "apps/admin-e-shop/src/index.html",
+        "browser": "apps/admin-e-shop/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/admin-e-shop/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/admin-e-shop/src/favicon.ico", "apps/admin-e-shop/src/assets"],
+        "styles": ["node_modules/quill/dist/quill.snow.css","apps/admin-e-shop/src/styles.scss"],
+        "scripts": ["node_modules/quill/dist/quill.js"]
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "fileReplacements": [
+            {
+              "replace": "environments/environment.ts",
+              "with": "environments/environment.prod.ts"
+            }
+          ]
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "admin-e-shop:build:production"
+        },
+        "development": {
+          "buildTarget": "admin-e-shop:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "admin-e-shop:build"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "admin-e-shop:build",
+        "staticFilePath": "dist/apps/admin-e-shop/browser"
+      }
+    }
+  }
+}

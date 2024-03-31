@@ -1,0 +1,63 @@
+<div class="admin-page p-4" *ngIf="statistics.length; else loading">
+  <p-card
+    header="Dashboard"
+    subheader="Latest Updates"
+  >
+    <div class="grid">
+      <div class="col-3">
+        <p-card styleClass="d-orders h-full w-full flex justify-between">
+          <div class="d-item">
+            <div class="left-group">
+              <i class="pi pi-shopping-cart"></i>
+              <span class="name">Orders</span>
+            </div>
+            <span class="number">{{ statistics[0] }}</span>
+          </div>
+        </p-card>
+      </div>
+      <div class="col-3">
+        <p-card styleClass="d-products h-full w-full flex justify-between">
+          <div class="d-item">
+            <div class="left-group">
+              <i class="pi pi-briefcase"></i>
+              <span class="name">Products</span>
+            </div>
+            <span class="number">{{ statistics[1] }}</span>
+          </div>
+        </p-card>
+      </div>
+      <div class="col-3">
+        <p-card styleClass="d-users h-full w-full flex justify-between">
+          <div class="d-item">
+            <div class="left-group">
+              <i class="pi pi-users"></i>
+              <span class="name">Users</span>
+            </div>
+            <span class="number">{{ statistics[2] }}</span>
+          </div>
+        </p-card>
+      </div>
+      <div class="col-3">
+        <p-card styleClass="d-totalsales h-full w-full flex justify-between">
+          <div class="d-item">
+            <div class="left-group">
+              <i class="pi pi-dollar"></i>
+              <span class="name">Sales</span>
+            </div>
+            <span class="number">{{ statistics[3] | currency }}</span>
+          </div>
+        </p-card>
+      </div>
+    </div>
+  </p-card>
+</div>
+<ng-template #loading>
+  <div class="h-screen flex align-items-center justify-content-center">
+    <p-progressSpinner
+      styleClass="w-5rem h-5rem"
+      strokeWidth="5"
+      fill="var(--surface-ground)"
+      animationDuration="1s">
+    </p-progressSpinner>
+  </div>
+</ng-template>

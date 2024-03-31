@@ -1,0 +1,30 @@
+@use '../../base/colors' as *;
+
+.products-search {
+  background: var(--surface-200);
+  border-radius: 10px;
+  width: 275px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+
+  i.pi {
+    width: 25px;
+    font-size: 1.3em;
+    color: $primary-color;
+  }
+
+  &-input {
+    height: 100%;
+    background-color: transparent;
+    color: var(--surface-600);
+    border: 0;
+    width: 100%;
+
+    &:focus, &:active {
+      border: 0;
+      outline: none;
+    }
+  }
+}

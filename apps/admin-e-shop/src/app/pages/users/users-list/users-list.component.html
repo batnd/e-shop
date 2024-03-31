@@ -1,0 +1,85 @@
+<p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog>
+<div class="admin-page p-4" *ngIf="users.length; else loading">
+  <p-card header="Users" subheader="List of all users">
+    <div class="grid">
+      <div class="col-12">
+        <p-toolbar>
+          <div class="p-toolbar-group-left p-3">
+            <p-button
+              label="New"
+              routerLink="form"
+              styleClass="p-button-success "
+              icon="pi pi-plus">
+            </p-button>
+          </div>
+        </p-toolbar>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col-12">
+        <p-table
+          [value]="users"
+          [paginator]="true"
+          [rows]="5"
+          [showCurrentPageReport]="true"
+          [rowsPerPageOptions]="[5, 10, 25, 50]"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} Products"
+          styleClass="p-datatable-gridlines">
+          <ng-template pTemplate="header">
+            <tr>
+              <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+              <th>Email</th>
+              <th>Is Admin</th>
+              <th>Country</th>
+              <th></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-user>
+            <tr>
+              <td>{{ user.name }}</td>
+              <td>{{ user.email }}</td>
+              <td>
+                <p-tag
+                  *ngIf="user.isAdmin"
+                  icon="pi pi-check"
+                  severity="success"
+                  [rounded]="true">
+                </p-tag>
+                <p-tag
+                  *ngIf="!user.isAdmin"
+                  icon="pi pi-times"
+                  severity="danger"
+                  [rounded]="true">
+                </p-tag>
+              </td>
+              <td>{{ user.country }}</td>
+              <td class="text-center">
+                <p-button
+                  (click)="onDeleteUser(user.id, user.name)"
+                  styleClass="p-button-danger mr-2"
+                  icon="pi pi-trash">
+                </p-button>
+                <p-button
+                  (click)="onUpdateUser(user.id)"
+                  styleClass="p-button-info"
+                  icon="pi pi-pencil">
+                </p-button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </p-card>
+</div>
+<ng-template #loading>
+  <div class="h-screen flex align-items-center justify-content-center">
+    <p-progressSpinner
+      styleClass="w-5rem h-5rem"
+      strokeWidth="5"
+      fill="var(--surface-ground)"
+      animationDuration="1s">
+    </p-progressSpinner>
+  </div>
+</ng-template>

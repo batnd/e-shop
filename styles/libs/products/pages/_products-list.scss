@@ -1,0 +1,16 @@
+ltviz-products-products-list {
+  flex-grow: 1;
+}
+
+.products-list {
+  &-actions {
+    .reset-filters {
+      width: 20px;
+      height: 20px;
+
+      span {
+        font-size: 0.75rem;
+      }
+    }
+  }
+}
